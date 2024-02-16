@@ -13,6 +13,7 @@ Navigator::Navigator(ros::NodeHandle *nh)
 }
 
 void Navigator::publish(){
+    
     tugas1::DronePos pose;
     
     if (z_pos == 0)
@@ -25,6 +26,7 @@ void Navigator::publish(){
     }
 
     if (increment){
+
         if (x_pos <= 1000){
             pose.x = x_pos;
             x_pos++;
@@ -49,28 +51,30 @@ void Navigator::publish(){
     ROS_INFO ("The z pose is %f", pose.z);
     ROS_INFO ("The status is %s", pose.status.c_str());
     pub.publish(pose);
-
 }
 
 bool Navigator::landDrone(tugas1::Command::Request &req, tugas1::Command::Response &res)
 {
     if (req.command == "land" && z_pos != 0){
-    for (int i {0}; i <= 10; i++){
+
+        for (int i {0}; i <= 10; i++){
         z_pos--;
         ROS_INFO("Decreasing z pose to: %f", z_pos);
-    }
-    if (z_pos==0){
+        increment = false;
+        }
+
+        if (z_pos==0){
         res.response = "successs";
-    }
-    else {
+        } else {
         res.response = "failed";
-    }
-    ROS_INFO ("Sending back response [%s]", res.response.c_str());
-    increment = false;
+        }
+
     } else {
         ROS_WARN ("Drone already landed");
         return 1;
     }
+
+    ROS_INFO ("Sending back response [%s]", res.response.c_str());
     
     return 0;
 }
