@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="navigatorNode" pkg="tugas1" type="navigatorNode" />
+  <node name="commanderNode" pkg="tugas1" type="commanderNode" />
+
+</launch>
