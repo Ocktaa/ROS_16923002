@@ -1,0 +1,13 @@
+1. Jelaskan apa itu MAVROS dan MAVLink, serta jelaskan keterhubungan keduanya?
+MAVROS merupakan package dalam ROS yang berguna untuk mempermudah menuliskan source code sehingga dapat berkomunikasi dengan sistem firmware. MAVROS menabstraksikan protokol MAVLink sehingga bisa menggunakan bagian-bagian dari sistem ROS, seperti topic, node, service dll.
+MAVLink adalah protokol komunikasi yang digunakan dalam kendaraan tanpa pengemudi yang kecil. MAVLink sering digunakan karena sangat efisien dengan keperluan memory yang sangat kecil dan reliability yang tinggi. 
+
+Jelaskan apa itu Ardupilot, dan bandingkan Ardupilot dengan PX4? Jelaskan keterhubungan dan perbedaan keduanya!
+Ardupilot dan PX4 merupakan SITL (Software in the Loop) yang berguna untuk mensimulasikan firmware dan flight controller dalam environement linux sehingga bisa mensimulasikan drone tersebut.
+ArduPilot dan PX4 keduanya merupakan SITL sehingga bisa digunakan untuk simulasi firmware, keduanya sangat mirip.
+Perbedaan pertama adalah, dalam PX4, perubahan pada source code tidak perlu dibagikan, namun pada ArduPilot perlu.
+Lalu PX4 memiliki fitur yang lebih banyak, tetapi lebih experimental. Sedangkan, Ardupilot lebih reliabale dan memiliki komunitas yang lebih besar.
+
+Pada sebuah Software Drone, terdapat node safety_pilot yang terhubung ke node commander yang mana merupakan node yang menjadi penggerak drone. Jelaskan pendapatmu mengapa diperlukan node safety_pilot yang terhubunug ke node commander dan berikan contoh fitur apa yang mungkin disediakan oleh safety_pilot
+
+LINK DRIVE SITL GAZEBO SIM
